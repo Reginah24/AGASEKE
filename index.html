@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SmartSave Rwanda - Digital Piggy Bank</title>
+    <title>AGASEKE - Digital Piggy Bank</title>
     <style>
         * {
             margin: 0;
@@ -882,8 +882,8 @@
                 
                 <div class="header">
                     <div class="logo">
-                        <div class="logo-icon">S</div>
-                        <div class="logo-text">SmartSave</div>
+                            <div class="logo-icon">A</div>
+                        <div class="logo-text">AGASEKE</div>
                     </div>
                     <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
                 </div>
@@ -1013,8 +1013,8 @@
                 <div class="main-content">
                     <div class="terms-content">
                         <div class="terms-section">
-                            <h3>🏦 SmartSave Digital Piggy Bank</h3>
-                            <p>Welcome to SmartSave, Rwanda's premier digital piggy bank service designed to help you save money securely with built-in withdrawal protection.</p>
+                            <h3>🏦 AGASEKE Digital Piggy Bank</h3>
+                            <p>Welcome to AGASEKE, Rwanda's premier digital piggy bank service designed to help you save money securely with built-in withdrawal protection.</p>
                         </div>
 
                         <div class="terms-section">
@@ -1058,7 +1058,7 @@
 
                         <div class="terms-section">
                             <h3>⚖️ Legal Terms</h3>
-                            <p>• SmartSave is licensed by the National Bank of Rwanda</p>
+                            <p>• AGASEKE is licensed by the National Bank of Rwanda</p>
                             <p>• Funds are insured up to 5,000,000 RWF per account</p>
                             <p>• Disputes are resolved through Rwanda's financial mediation system</p>
                             <p>• Terms may be updated with 30 days notice</p>
@@ -1130,7 +1130,7 @@
                         <div class="settings-info">
                             <div class="settings-icon" style="background: #FF9800;">📱</div>
                             <div>
-                                <div style="font-weight: 600;">Download SmartSave App</div>
+                                <div style="font-weight: 600;">Download AGASEKE App</div>
                                 <div style="font-size: 12px; color: #666;">Get mobile app, view regional pricing</div>
                             </div>
                         </div>
@@ -1185,13 +1185,13 @@
                 
                 <div class="header with-back">
                     <button class="back-btn" onclick="showPage('settings')">←</button>
-                    <div class="page-title">Download SmartSave</div>
+                    <div class="page-title">Download AGASEKE</div>
                 </div>
                 
                 <div class="main-content">
                     <div style="text-align: center; margin-bottom: 30px;">
                         <div style="font-size: 60px; margin-bottom: 16px;">📱</div>
-                        <h2 style="color: #1565C0; margin: 0;">SmartSave Mobile App</h2>
+                        <h2 style="color: #1565C0; margin: 0;">AGASEKE Mobile App</h2>
                         <p style="color: #666; margin: 10px 0;">Your digital piggy bank, now on mobile!</p>
                     </div>
 
@@ -1788,7 +1788,7 @@
             modal.innerHTML = `
                 <div style="background: white; padding: 30px; border-radius: 15px; width: 90%; max-width: 400px;">
                     <div style="text-align: center; margin-bottom: 30px;">
-                        <h2 style="color: #1565C0; margin: 0;">Welcome to SmartSave</h2>
+                        <h2 style="color: #1565C0; margin: 0;">Welcome to AGASEKE</h2>
                         <p style="color: #666; margin: 10px 0 0 0;">Your Digital Piggy Bank</p>
                     </div>
                     
@@ -2240,7 +2240,7 @@
             
             if (userRegion.isFree) {
                 // Free download for East Africa
-                alert(`Congratulations!\n\nAs you're in ${userRegion.regionName}, the SmartSave app is FREE for you!\n\nDownload links for Android and iOS will be sent to:\nanthonyregina48@gmail.com\n\nNeed help? Contact +250 786 739 043`);
+                alert(`Congratulations!\n\nAs you're in ${userRegion.regionName}, the AGASEKE app is FREE for you!\n\nDownload links for Android and iOS will be sent to:\nanthonyregina48@gmail.com\n\nNeed help? Contact +250 786 739 043`);
                 
                 // Here you would normally trigger the actual download/email sending
                 // For demo purposes, we'll just show success
@@ -2248,7 +2248,7 @@
                 
             } else {
                 // Paid download - show payment options
-                const confirmed = confirm(`💳 Purchase SmartSave App\n\nPrice: ${userRegion.price}\nRegion: ${userRegion.regionName}\n\nPayment methods:\n• MTN Mobile Money\n• Airtel Money  \n• Bank Transfer\n\n📧 Download link sent to: anthonyregina48@gmail.com\n\nProceed with purchase?`);
+                const confirmed = confirm(`💳 Purchase AGASEKE App\n\nPrice: ${userRegion.price}\nRegion: ${userRegion.regionName}\n\nPayment methods:\n• MTN Mobile Money\n• Airtel Money  \n• Bank Transfer\n\n📧 Download link sent to: anthonyregina48@gmail.com\n\nProceed with purchase?`);
                 
                 if (confirmed) {
                     showPaymentModal();
@@ -2274,7 +2274,7 @@
             modal.innerHTML = `
                 <div style="background: white; padding: 30px; border-radius: 15px; width: 90%; max-width: 400px;">
                     <div style="text-align: center; margin-bottom: 20px;">
-                        <h2 style="color: #1565C0; margin: 0;">Purchase SmartSave App</h2>
+                        <h2 style="color: #1565C0; margin: 0;">Purchase AGASEKE App</h2>
                         <p style="color: #666; margin: 10px 0 0 0;">Price: ${userRegion.price}</p>
                     </div>
                     
@@ -2576,7 +2576,7 @@
                 const phoneNumber = prompt('Enter your MTN Mobile Money number:');
                 if (!phoneNumber) return;
                 requestData.phoneNumber = phoneNumber;
-                requestData.payerMessage = 'SmartSave Deposit';
+                requestData.payerMessage = 'AGASEKE Deposit';
             } else if (selectedDepositMethod === 'Airtel Money') {
                 alert('Airtel Money integration coming soon!');
                 return;
@@ -2956,7 +2956,7 @@
                 authToken = null;
                 currentUser = null;
                 localStorage.removeItem('authToken');
-                alert('You have been logged out successfully.\n\nThank you for using SmartSave!');
+                alert('You have been logged out successfully.\n\nThank you for using AGASEKE!');
                 showLoginPage();
             }
         }
@@ -2980,7 +2980,7 @@
 
         // Initialize
         async function initialize() {
-            console.log('Initializing SmartSave App...');
+            console.log('Initializing AGASEKE App...');
             
             // Add mobile touch support
             addMobileTouchSupport();
@@ -3041,3 +3041,4 @@
     </script>
 </body>
 </html>
+

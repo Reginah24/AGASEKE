@@ -1,4 +1,4 @@
-# SmartSave - Frontend
+# AGASEKE - Frontend
 
 A digital piggy bank application with user signup functionality.
 

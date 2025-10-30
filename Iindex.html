@@ -838,7 +838,35 @@
     <div class="phone-container">
         <div class="screen light-mode" id="screen">
             
-            <!-- HOME PAGE -->
+                <!-- SIGNUP PAGE -->
+                <div class="page" id="signup-page">
+                    <div class="status-bar">
+                        <span>Sign Up</span>
+                    </div>
+                    <div class="header with-back">
+                        <button class="back-btn" onclick="showPage('home')">←</button>
+                        <div class="page-title">Create Account</div>
+                    </div>
+                    <div class="main-content">
+                        <form id="signup-form">
+                            <div class="form-group">
+                                <label class="form-label" for="username">Username</label>
+                                <input class="form-input" type="text" id="username" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email</label>
+                                <input class="form-input" type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="password">Password</label>
+                                <input class="form-input" type="password" id="password" name="password" required>
+                            </div>
+                            <button class="primary-btn" type="submit">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            
+                <!-- HOME PAGE -->
             <div class="page active" id="home-page">
                 <div class="status-bar">
                     <span id="current-time">9:41</span>

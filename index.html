@@ -848,20 +848,27 @@
                         <div class="page-title">Create Account</div>
                     </div>
                     <div class="main-content">
-                        <form id="signup-form">
+                        <form id="signup-form" onsubmit="handleSignup(event)">
                             <div class="form-group">
-                                <label class="form-label" for="username">Username</label>
-                                <input class="form-input" type="text" id="username" name="username" required>
+                                <label class="form-label" for="signup-username">Username</label>
+                                <input class="form-input" type="text" id="signup-username" name="username" placeholder="Choose a username" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="email">Email</label>
-                                <input class="form-input" type="email" id="email" name="email" required>
+                                <label class="form-label" for="signup-email">Email</label>
+                                <input class="form-input" type="email" id="signup-email" name="email" placeholder="your.email@example.com" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label" for="password">Password</label>
-                                <input class="form-input" type="password" id="password" name="password" required>
+                                <label class="form-label" for="signup-password">Password</label>
+                                <input class="form-input" type="password" id="signup-password" name="password" placeholder="At least 6 characters" minlength="6" required>
                             </div>
-                            <button class="primary-btn" type="submit">Sign Up</button>
+                            <div class="form-group">
+                                <label class="form-label" for="signup-phone">Phone Number (Optional)</label>
+                                <input class="form-input" type="tel" id="signup-phone" name="phone" placeholder="+250 7XX XXX XXX">
+                            </div>
+                            <button class="primary-btn" type="submit" id="signup-btn">Create Account</button>
+                            <p style="text-align: center; margin-top: 16px; font-size: 14px; color: #666;">
+                                Already have an account? <a href="#" onclick="showPage('home'); return false;" style="color: #1565C0; text-decoration: none;">Login</a>
+                            </p>
                         </form>
                     </div>
                 </div>
@@ -1885,6 +1892,49 @@
             if (success) {
                 document.body.removeChild(window.authModal);
                 loadUserData();
+            }
+        }
+
+        // handle signup from dedicated signup page
+        async function handleSignup(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('signup-username').value.trim();
+            const email = document.getElementById('signup-email').value.trim();
+            const password = document.getElementById('signup-password').value;
+            const phone = document.getElementById('signup-phone').value.trim();
+            
+            if (!username || !email || !password) {
+                alert('Please fill all required fields');
+                return;
+            }
+            
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters');
+                return;
+            }
+            
+            const btn = document.getElementById('signup-btn');
+            btn.disabled = true;
+            btn.textContent = 'Creating...';
+            
+            const userData = {
+                fullName: username,
+                email: email,
+                phoneNumber: phone || undefined,
+                password: password,
+                confirmPassword: password,
+                pin: '0000'  // default pin, user can change later
+            };
+            
+            const success = await register(userData);
+            
+            btn.disabled = false;
+            btn.textContent = 'Create Account';
+            
+            if (success) {
+                alert('Account created successfully!');
+                showPage('home');
             }
         }
 

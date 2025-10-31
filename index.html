@@ -1468,15 +1468,7 @@
                 <div class="main-content">
                     <div class="form-group">
                         <label class="form-label">Recipient Phone Number</label>
-                        <input type="tel" class="form-input" placeholder="078XXXXXXX" id="recipient-phone" 
-                               oninput="lookupRecipientName()" onpaste="setTimeout(lookupRecipientName, 100)">
-                        <div id="phone-suggestions" style="display: none; background: white; border: 1px solid #ddd; border-radius: 5px; max-height: 200px; overflow-y: auto; position: absolute; z-index: 1000; width: calc(100% - 40px); margin-top: -5px;"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Recipient Name</label>
-                        <input type="text" class="form-input" placeholder="Enter recipient name" id="recipient-name" readonly style="background: #f8f9fa;">
-                        <div style="font-size: 12px; color: #666; margin-top: 5px;" id="name-status">Enter phone number to auto-fill name</div>
+                        <input type="tel" class="form-input" placeholder="078XXXXXXX or +250XXXXXXXXX" id="recipient-phone">
                     </div>
 
                     <div class="amount-display" id="transfer-amount-display">0 RWF</div>

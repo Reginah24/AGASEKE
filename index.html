@@ -1022,10 +1022,12 @@
                             <p><strong>Deposits:</strong> FREE - No charges for adding money to your account</p>
                             <p><strong>Withdrawals:</strong> 2% service fee on all withdrawal amounts</p>
                             <p><strong>Transfers:</strong> Transfer fees apply based on amount:</p>
-                            <p style="margin-left: 20px;">• 50 - 10,000 RWF: 100 RWF fee</p>
-                            <p style="margin-left: 20px;">• 10,001 - 100,000 RWF: 200 RWF fee</p>
-                            <p style="margin-left: 20px;">• Above 100,000 RWF: 500 RWF fee</p>
-                            <p style="margin-left: 20px;">• Below 50 RWF: FREE (No fee)</p>
+                            <p style="margin-left: 20px;">• 1 - 1,000 RWF: FREE</p>
+                            <p style="margin-left: 20px;">• 1,001 - 5,000 RWF: 50 RWF fee</p>
+                            <p style="margin-left: 20px;">• 5,001 - 15,000 RWF: 100 RWF fee</p>
+                            <p style="margin-left: 20px;">• 15,001 - 50,000 RWF: 200 RWF fee</p>
+                            <p style="margin-left: 20px;">• 50,001 - 200,000 RWF: 400 RWF fee</p>
+                            <p style="margin-left: 20px;">• Above 200,000 RWF: 600 RWF fee</p>
                             <p><strong>Account Maintenance:</strong> FREE - No monthly or annual fees</p>
                         </div>
 
@@ -1488,7 +1490,7 @@
                             <span id="transfer-total-amount">0 RWF</span>
                         </div>
                         <div style="font-size: 12px; color: #856404; margin-top: 8px;">
-                            💡 <strong>Fee Structure:</strong> 50-10,000 RWF = 100 RWF fee • 10,001-100,000 RWF = 200 RWF fee • Above 100,000 RWF = 500 RWF fee
+                            💡 <strong>Fee Structure:</strong> Up to 1,000 = FREE • 1,001-5,000 = 50 RWF • 5,001-15,000 = 100 RWF • 15,001-50,000 = 200 RWF • 50,001-200,000 = 400 RWF • Above 200,000 = 600 RWF
                         </div>
                     </div>
                     
@@ -2408,14 +2410,18 @@
         function calculateTransferFee(amount) {
             const numAmount = parseFloat(amount) || 0;
             
-            if (numAmount < 50) {
-                return 0; // No transfer fee for amounts below 50 RWF
-            } else if (numAmount <= 10000) {
-                return 100; // 100 RWF fee for 50-10,000 RWF
-            } else if (numAmount <= 100000) {
-                return 200; // 200 RWF fee for 10,001-100,000 RWF
+            if (numAmount <= 1000) {
+                return 0; // FREE for 1-1,000 RWF
+            } else if (numAmount <= 5000) {
+                return 50; // 50 RWF fee for 1,001-5,000 RWF
+            } else if (numAmount <= 15000) {
+                return 100; // 100 RWF fee for 5,001-15,000 RWF
+            } else if (numAmount <= 50000) {
+                return 200; // 200 RWF fee for 15,001-50,000 RWF
+            } else if (numAmount <= 200000) {
+                return 400; // 400 RWF fee for 50,001-200,000 RWF
             } else {
-                return 500; // 500 RWF fee for above 100,000 RWF
+                return 600; // 600 RWF fee for above 200,000 RWF
             }
         }
         
@@ -2427,7 +2433,7 @@
             
             const feeDisplay = document.getElementById('transfer-fee-display');
             
-            if (amount >= 50) {
+            if (amount > 1000) {
                 feeDisplay.style.display = 'block';
                 document.getElementById('transfer-base-amount').textContent = amount.toLocaleString() + ' RWF';
                 document.getElementById('transfer-fee-amount').textContent = fee.toLocaleString() + ' RWF';

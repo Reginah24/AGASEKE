@@ -193,6 +193,16 @@
               "properties": {
                 "amount": {
                   "example": "any"
+                },
+                "payer": {
+                  "example": "25677XXXXXXX",
+                  "description": "MSISDN of payer (required for Request-to-Pay)"
+                },
+                "currency": {
+                  "example": "EUR"
+                },
+                "externalId": {
+                  "example": "order-123"
                 }
               }
             }
@@ -209,6 +219,48 @@
             "description": "Internal Server Error"
           }
         }
+      }
+    },
+    "/mtn/token": {
+      "post": {
+        "tags": ["MTN"],
+        "description": "Test endpoint to obtain an access token (requires MTN sandbox credentials)",
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/mtn/requesttopay": {
+      "post": {
+        "tags": ["MTN"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "amount": { "example": "10" },
+                "payer": { "example": "25677XXXXXXX" },
+                "currency": { "example": "EUR" },
+                "externalId": { "example": "order-123" }
+              }
+            }
+          }
+        ],
+        "responses": { "202": { "description": "Accepted" } }
+      }
+    },
+    "/mtn/callback": {
+      "post": {
+        "tags": ["MTN"],
+        "description": "Webhook endpoint used by MTN to send payment status updates",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": { "type": "object" }
+          }
+        ],
+        "responses": { "200": { "description": "OK" } }
       }
     },
     "/saving": {

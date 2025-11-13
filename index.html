@@ -3219,3 +3219,43 @@
 </body>
 </html>
 
+<script>
+    (function(){
+        const BACKEND_ORIGIN = 'http://localhost:5000'
+        const CHECK_URL = BACKEND_ORIGIN + '/api/documentation'
+        const badge = document.createElement('div')
+        badge.id = 'backend-status-badge'
+        Object.assign(badge.style,{
+            position:'fixed',right:'12px',bottom:'12px',padding:'8px 12px',
+            background:'#ffcc00',color:'#000',borderRadius:'6px',zIndex:9999,
+            fontWeight:700,fontFamily:'sans-serif',boxShadow:'0 6px 18px rgba(0,0,0,0.12)'
+        })
+        badge.innerText = 'Checking backend...'
+        document.body.appendChild(badge)
+
+        fetch(CHECK_URL, { method: 'GET', mode: 'cors' })
+            .then(res => {
+                if (res.ok) {
+                    badge.style.background = '#4caf50'
+                    badge.style.color = '#fff'
+                    badge.innerText = 'Backend: Connected'
+                } else {
+                    badge.style.background = '#f44336'
+                    badge.style.color = '#fff'
+                    badge.innerText = `Backend: Unavailable (${res.status})`
+                }
+            })
+            .catch(err => {
+                badge.style.background = '#f44336'
+                badge.style.color = '#fff'
+                badge.innerText = 'Backend: Not Connected'
+                console.warn('Backend check failed', err)
+            })
+
+        // Expose a global base URL for frontend scripts to use
+        window.AGASEKE = window.AGASEKE || {}
+        window.AGASEKE.BACKEND_ORIGIN = BACKEND_ORIGIN
+        window.AGASEKE.API_BASE = BACKEND_ORIGIN + '/api'
+    })()
+</script>
+

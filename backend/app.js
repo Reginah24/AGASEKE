@@ -19,6 +19,8 @@ app.use("/api/documentation", swaggerUi.serve, swaggerUi.setup(swaggerFile, fals
 app.use("/api", require("./routes/authRoutes"));
 app.use("/api", require("./routes/savingRoutes"));
 app.use("/api", require("./routes/withdrawalRoutes"));
+app.use("/api", require("./routes/mtnRoutes"));
+app.use("/api", require("./routes/mtnWebhookRoutes"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

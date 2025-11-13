@@ -40,6 +40,31 @@ Expected response:
 }
 ```
 
+Admin: Create MTN API User from the backend
+------------------------------------------
+
+You can create an MTN API user and API key from the backend using an admin-only endpoint. This requires a user in the database whose email matches `ADMIN_EMAIL` in your environment.
+
+1. Set `ADMIN_EMAIL` in your environment to the email of an existing user (the admin):
+
+```
+ADMIN_EMAIL=admin@youremail.com
+```
+
+2. Call the admin endpoint (authenticated as that admin user):
+
+```
+POST /api/mtn/admin/create-api-user
+Body: { "callbackHost": "https://your-public-callback.example.com" }
+```
+
+Response will contain:
+```
+{ "apiUserId": "uuid", "apiKey": "generated-api-key" }
+```
+
+Save these values into your `.env` as `MTN_API_USER` and `MTN_API_KEY`.
+
 ## Usage
 
 Just open `Iindex.html` in a browser. The signup functionality will work once the backend API is connected.

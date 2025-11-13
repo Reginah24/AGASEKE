@@ -21,6 +21,7 @@ app.use("/api", require("./routes/savingRoutes"));
 app.use("/api", require("./routes/withdrawalRoutes"));
 app.use("/api", require("./routes/mtnRoutes"));
 app.use("/api", require("./routes/mtnWebhookRoutes"));
+app.use("/api", require("./routes/mtnAdminRoutes"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

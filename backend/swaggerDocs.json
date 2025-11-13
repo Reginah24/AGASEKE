@@ -249,6 +249,30 @@
         "responses": { "202": { "description": "Accepted" } }
       }
     },
+    "/mtn/admin/create-api-user": {
+      "post": {
+        "tags": ["MTN"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "callbackHost": { "example": "https://webhook.site/your-id" },
+                "apiUserId": { "example": "optional-uuid" }
+              }
+            }
+          }
+        ],
+        "responses": { "200": { "description": "OK" }, "400": { "description": "Bad Request" } }
+      }
+    },
     "/mtn/callback": {
       "post": {
         "tags": ["MTN"],
